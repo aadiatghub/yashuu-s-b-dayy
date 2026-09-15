@@ -5,6 +5,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- saved from url=(0044)file:///Users/anurag/Applications/index.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -203,39 +204,31 @@ Enjoy your day, my love! 🎂✨❤️🫂😚😚😚😚😚🫶🏻</div>
     }
   });
 </script>
-  <script src="app.js"></script>
-
-    <script>
-      // The Ultimate Auto-Lightbox Script (Jo tumne abhi lagaya aur mast chal raha hai)
-      ...
-    </script>
-
-    <!-- 👇 NAYA WALA CODE YAHAN PASTE KARNA HAI 👇 -->
-    <script>
-      // Anti-Refresh Replay Hack
-      window.addEventListener('click', function(e) {
-        let btn = e.target.closest('button') || e.target.closest('a') || e.target.closest('div') || e.target;
-        let text = btn.textContent || '';
-        
-        if(text.includes('REPLAY OUR LITTLE SURPRISE')) {
-          e.preventDefault();
-          e.stopPropagation(); 
-          
-          document.querySelectorAll('.screen').forEach(function(s) {
-            s.style.display = 'none';
-            s.style.opacity = '0';
-            s.classList.remove('active');
-          });
-          
-          let s1 = document.getElementById('screen1');
-          if(s1) {
-            s1.style.display = 'flex';
-            s1.style.opacity = '1';
-            s1.classList.add('active');
-          }
-        }
-      }, true);
-    </script>
-</body>
-</html>
+<script>
+  // Clean Anti-Refresh Replay Hack
+  window.addEventListener('click', function(e) {
+    let btn = e.target.closest('button') || e.target.closest('a') || e.target.closest('div') || e.target;
+    let text = btn.textContent || '';
+    
+    if(text.includes('REPLAY OUR LITTLE SURPRISE')) {
+      e.preventDefault();
+      e.stopPropagation(); 
+      
+      // Sabhi screens se active class aur forced styles hatao
+      document.querySelectorAll('.screen').forEach(function(s) {
+        s.classList.remove('active');
+        s.style.display = '';
+        s.style.opacity = '';
+      });
+      
+      // Screen 1 ko wapas active karo taaki buttons kaam karein
+      let s1 = document.getElementById('screen1');
+      if(s1) {
+        s1.classList.add('active');
+        s1.style.display = '';
+        s1.style.opacity = '';
+      }
+    }
+  }, true);
+</script> 
 </body></html>

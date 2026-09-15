@@ -3,6 +3,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- saved from url=(0044)file:///Users/anurag/Applications/index.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -151,21 +152,53 @@ Enjoy your day, my love! 🎂✨❤️🫂😚😚😚😚😚🫶🏻</div>
 
     <script src="app.js"></script>
     <script>
+  // The Ultimate Auto-Lightbox Script
   document.addEventListener('click', function(e) {
-    if(e.target.tagName === 'IMG' && e.target.closest('#photoGrid')) {
-      let lb = document.getElementById('lightbox');
-      let lbImg = document.getElementById('lightboxImg');
-      if(lb && lbImg) {
-        lbImg.src = e.target.src;
-        lb.style.display = 'flex';
-        lb.style.opacity = '1';
-        lb.style.visibility = 'visible';
-        lb.style.zIndex = '9999';
-      }
-    }
-    if(e.target.id === 'lightboxClose' || e.target.id === 'lightbox') {
-      let lb = document.getElementById('lightbox');
-      if(lb) lb.style.display = 'none';
+    // Agar click ki gayi cheez ek Image hai
+    if(e.target.tagName === 'IMG') {
+      // Loop se bachne ke liye
+      if(e.target.id === 'popupImg') return;
+
+      // Khud ka naya full-screen background banao
+      let overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = '0';
+      overlay.style.left = '0';
+      overlay.style.width = '100vw';
+      overlay.style.height = '100vh';
+      overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+      overlay.style.zIndex = '99999';
+      overlay.style.display = 'flex';
+      overlay.style.justifyContent = 'center';
+      overlay.style.alignItems = 'center';
+      overlay.style.flexDirection = 'column';
+
+      // Photo ko popup mein set karo
+      let img = document.createElement('img');
+      img.id = 'popupImg';
+      img.src = e.target.src;
+      img.style.maxWidth = '90%';
+      img.style.maxHeight = '85%';
+      img.style.borderRadius = '15px';
+      img.style.boxShadow = '0 0 20px rgba(255, 105, 180, 0.5)'; // Cute pink glow
+
+      // Band karne ka text
+      let closeTxt = document.createElement('div');
+      closeTxt.innerHTML = 'Tap anywhere to close 🤍';
+      closeTxt.style.color = 'white';
+      closeTxt.style.marginTop = '15px';
+      closeTxt.style.fontFamily = 'sans-serif';
+      closeTxt.style.fontSize = '14px';
+
+      // Sab kuch screen par dikhao
+      overlay.appendChild(img);
+      overlay.appendChild(closeTxt);
+      document.body.appendChild(overlay);
+
+      // Kahi bhi tap karne par band ho jaye
+      overlay.onclick = function() {
+        overlay.remove();
+      };
     }
   });
 </script>

@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- saved from url=(0044)file:///Users/anurag/Applications/index.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,7 +19,7 @@
     <canvas id="confettiCanvas" width="1470" height="773"></canvas>
 
     <!-- All screens container -->
-    <div class="screen" id="screen1">
+    <div class="screen active" id="screen1">
         <div class="screen-content">
             <div class="floating-hearts" id="hearts1"></div>
             <div class="glow-orb orb1"></div>
@@ -84,7 +85,7 @@
     </div>
 
     <!-- FINAL BIRTHDAY LETTER -->
-    <div class="screen active" id="finalScreen">
+    <div class="screen" id="finalScreen">
         <div class="screen-content final-content">
             <div class="glow-orb orb1"></div>
             <div class="glow-orb orb2"></div>
@@ -148,17 +149,5 @@ Enjoy your day, my love! 🎂✨❤️🫂😚😚😚😚😚🫶🏻</div>
     </div>
 
     <script src="app.js"></script>
-    <script>
-  setTimeout(function() {
-    document.querySelectorAll('.screen').forEach(function(s) {
-      s.style.display = 'none';
-      s.style.opacity = '0';
-    });
-    var s1 = document.getElementById('screen1');
-    if(s1) {
-      s1.style.display = 'flex';
-      s1.style.opacity = '1';
-    }
-  }, 50);
-</script>
+    
 </body></html>
